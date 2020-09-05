@@ -37,17 +37,20 @@ public class TradeScreen extends JFrame implements ActionListener {
         bigPanel.setLayout(new BoxLayout(bigPanel, BoxLayout.PAGE_AXIS));
         this.add(bigPanel);
         onePanel = new JPanel();
+
         JMenuBar menuBar = new JMenuBar();
         itemsToTrade = new JMenu("Trader 1 Offers: ");
 
         itemsToTrade.setFont(new Font(Font.MONOSPACED, Font.BOLD, 30));
 
-        menuBar.setBackground(new Color(32, 255, 21));
-        menuBar.setForeground(new Color(200, 8, 30));
+        menuBar.setBackground(new Color(171, 12, 123));
+        menuBar.setForeground(new Color(145, 0, 7));
         menuBar.setOpaque(true);
 
         for(Coupon coupon: traderOne.couponToTrade){
             JMenuItem item = new JMenuItem(coupon.savings);
+            item.setFont(new Font(Font.MONOSPACED, Font.BOLD, 30));
+            item.setForeground(new Color(145, 0, 7));
             itemsToTrade.add(item);
             item.addActionListener(this);
         }
@@ -57,11 +60,14 @@ public class TradeScreen extends JFrame implements ActionListener {
 
         twoPanel = new JPanel();
         JMenuBar menuBar2 = new JMenuBar();
-        menuBar2.setForeground(new Color(200, 8, 30));
+        menuBar2.setForeground(new Color(145, 0, 7));
         JMenu itemsToTrade2 = new JMenu("Trader 2 Offers: ");
         itemsToTrade2.setFont(new Font(Font.MONOSPACED, Font.BOLD, 30));
         for(Coupon coupon: traderTwo.couponToTrade){
             JMenuItem item = new JMenuItem(coupon.savings);
+            item.setFont(new Font(Font.MONOSPACED, Font.BOLD, 30));
+            item.setOpaque(true);
+            item.setForeground(new Color(145, 0, 7));
             itemsToTrade2.add(item);
             item.addActionListener(this);
         }
@@ -99,6 +105,7 @@ public class TradeScreen extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
             JMenuItem item = (JMenuItem) actionEvent.getSource();
+
             JLabel label = new JLabel(item.getText());
             ArrayList<String> array = new ArrayList<>();
             for(Coupon coupon: trader1.couponToTrade){
@@ -123,6 +130,9 @@ public class TradeScreen extends JFrame implements ActionListener {
             labelHeightCounter2+=20;
             this.setVisible(true);
         }
+        label.setForeground(new Color(145, 0, 7));
+        label.setFont(new Font(Font.MONOSPACED, Font.BOLD, 25));
+        itemsToTrade.remove(item);
 
    }
 
