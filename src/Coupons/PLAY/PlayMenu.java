@@ -1,4 +1,4 @@
-package Coupons;
+package Coupons.PLAY;
 
 public class PlayMenu {
     /**

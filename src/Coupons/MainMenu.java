@@ -69,6 +69,12 @@ public class MainMenu extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-
+    JButton button = (JButton) actionEvent.getSource();
+    if(button.getText().equals("TRADE")){
+        this.dispose();
+        new TradeMenu();
+    }
+    //else if(
+        // else
     }
 }

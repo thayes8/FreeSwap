@@ -1,10 +1,15 @@
 package Coupons;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/**
+ * The essential screen where the players engage in the trade.
+ *
+ */
 public class TradeScreen extends JFrame implements ActionListener {
     Trader trader1;
     Trader trader2;
@@ -18,6 +23,12 @@ public class TradeScreen extends JFrame implements ActionListener {
     int labelHeightCounter2 = 0;
 //    ArrayList<JMenuItem> oneSelectedCoupons = new ArrayList<>();
 //    ArrayList<JMenuItem> twoSelectedCoupons = new ArrayList<>();
+
+    /**
+     *
+     * @param traderOne Player 1
+     * @param traderTwo Player 2
+     */
     public TradeScreen(Trader traderOne, Trader traderTwo){
         this.trader1 = traderOne;
         this.trader2 = traderTwo;
@@ -27,9 +38,14 @@ public class TradeScreen extends JFrame implements ActionListener {
         this.add(bigPanel);
         onePanel = new JPanel();
         JMenuBar menuBar = new JMenuBar();
-        itemsToTrade = new JMenu("itemsToTrade");
+        itemsToTrade = new JMenu("Trader 1 Offers: ");
 
-        //itemsToTrade.addActionListener(this);
+        itemsToTrade.setFont(new Font(Font.MONOSPACED, Font.BOLD, 30));
+
+        menuBar.setBackground(new Color(32, 255, 21));
+        menuBar.setForeground(new Color(200, 8, 30));
+        menuBar.setOpaque(true);
+
         for(Coupon coupon: traderOne.couponToTrade){
             JMenuItem item = new JMenuItem(coupon.savings);
             itemsToTrade.add(item);
@@ -41,7 +57,9 @@ public class TradeScreen extends JFrame implements ActionListener {
 
         twoPanel = new JPanel();
         JMenuBar menuBar2 = new JMenuBar();
-        JMenu itemsToTrade2 = new JMenu("itemsToTrade2");
+        menuBar2.setForeground(new Color(200, 8, 30));
+        JMenu itemsToTrade2 = new JMenu("Trader 2 Offers: ");
+        itemsToTrade2.setFont(new Font(Font.MONOSPACED, Font.BOLD, 30));
         for(Coupon coupon: traderTwo.couponToTrade){
             JMenuItem item = new JMenuItem(coupon.savings);
             itemsToTrade2.add(item);
@@ -61,6 +79,9 @@ public class TradeScreen extends JFrame implements ActionListener {
         Coupon coupon1 = new Coupon("Free Slurpie");
         Coupon coupon2 = new Coupon("Free Drink");
         Coupon coupon3 = new Coupon("Free HotDog");
+          /*
+            Adding Coupons to trader1 and trader2's lists to be added to the menu in the constructor of TradeScreen
+             */
         Trader.traderEarnsCoupon(traderOne, coupon1);
         Trader.traderOffersCoupon(traderOne, coupon1);
         Trader.traderEarnsCoupon(traderOne, coupon2);

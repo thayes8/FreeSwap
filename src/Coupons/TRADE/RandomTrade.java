@@ -1,4 +1,4 @@
-package Coupons;
+package Coupons.TRADE;
 
 public class RandomTrade {
 }
