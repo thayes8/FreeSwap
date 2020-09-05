@@ -17,6 +17,7 @@ public class TradeScreen extends JFrame implements ActionListener {
     JPanel twoPanel;
     JPanel bigPanel;
     JMenu itemsToTrade;
+    JMenu itemsToTrade2;
     final int WIDTH = 400;
     final int HEIGHT = 700;
     int labelHeightCounter1 = 0;
@@ -61,7 +62,7 @@ public class TradeScreen extends JFrame implements ActionListener {
         twoPanel = new JPanel();
         JMenuBar menuBar2 = new JMenuBar();
         menuBar2.setForeground(new Color(145, 0, 7));
-        JMenu itemsToTrade2 = new JMenu("Trader 2 Offers: ");
+        itemsToTrade2 = new JMenu("Trader 2 Offers: ");
         itemsToTrade2.setFont(new Font(Font.MONOSPACED, Font.BOLD, 30));
         for(Coupon coupon: traderTwo.couponToTrade){
             JMenuItem item = new JMenuItem(coupon.savings);
@@ -123,16 +124,18 @@ public class TradeScreen extends JFrame implements ActionListener {
             label.setBounds(0, labelHeightCounter1, 10, 10);
             labelHeightCounter1+=20;
             this.setVisible(true);
+            itemsToTrade.remove(item);
         }
         else{
             twoPanel.add(label);
             label.setBounds(0, labelHeightCounter2, 10, 10);
             labelHeightCounter2+=20;
             this.setVisible(true);
+            itemsToTrade2.remove(item);
         }
         label.setForeground(new Color(145, 0, 7));
         label.setFont(new Font(Font.MONOSPACED, Font.BOLD, 25));
-        itemsToTrade.remove(item);
+
 
    }
 
