@@ -59,7 +59,7 @@ public class TradeScreen extends JFrame implements ActionListener {
         menuBar.add(itemsToTrade);
         onePanel.add(menuBar);
 
-        JButton oneAcceptTrade = new JButton("Accept Trade?");
+        JButton oneAcceptTrade = new JButton("Accept Trade");
         onePanel.add(oneAcceptTrade);
         oneAcceptTrade.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
         bigPanel.add(onePanel);
@@ -82,7 +82,7 @@ public class TradeScreen extends JFrame implements ActionListener {
 
 
         twoPanel.add(menuBar2);
-        JButton twoAcceptTrade = new JButton("Accept Trade?");
+        JButton twoAcceptTrade = new JButton("Accept Trade");
         twoPanel.add(twoAcceptTrade);
         twoAcceptTrade.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
         bigPanel.add(twoPanel);
