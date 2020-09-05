@@ -38,10 +38,11 @@ public class TradeScreen extends JFrame implements ActionListener {
         bigPanel.setLayout(new BoxLayout(bigPanel, BoxLayout.PAGE_AXIS));
         this.add(bigPanel);
         onePanel = new JPanel();
+        onePanel.setLayout(new BoxLayout(onePanel, BoxLayout.PAGE_AXIS));
+
 
         JMenuBar menuBar = new JMenuBar();
         itemsToTrade = new JMenu("Trader 1 Offers: ");
-
         itemsToTrade.setFont(new Font(Font.MONOSPACED, Font.BOLD, 30));
 
         menuBar.setBackground(new Color(171, 12, 123));
@@ -57,9 +58,14 @@ public class TradeScreen extends JFrame implements ActionListener {
         }
         menuBar.add(itemsToTrade);
         onePanel.add(menuBar);
+
+        JButton oneAcceptTrade = new JButton("Accept Trade?");
+        onePanel.add(oneAcceptTrade);
+        oneAcceptTrade.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
         bigPanel.add(onePanel);
 
         twoPanel = new JPanel();
+        twoPanel.setLayout(new BoxLayout(twoPanel, BoxLayout.PAGE_AXIS));
         JMenuBar menuBar2 = new JMenuBar();
         menuBar2.setForeground(new Color(145, 0, 7));
         itemsToTrade2 = new JMenu("Trader 2 Offers: ");
@@ -73,7 +79,12 @@ public class TradeScreen extends JFrame implements ActionListener {
             item.addActionListener(this);
         }
         menuBar2.add(itemsToTrade2);
+
+
         twoPanel.add(menuBar2);
+        JButton twoAcceptTrade = new JButton("Accept Trade?");
+        twoPanel.add(twoAcceptTrade);
+        twoAcceptTrade.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
         bigPanel.add(twoPanel);
 
         this.setVisible(true);
