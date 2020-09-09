@@ -14,6 +14,8 @@ public class PlayMenu extends JFrame implements ActionListener {
      */
     final int WIDTH = 400;
     final int HEIGHT = 600;
+    public static JButton button;
+    public BreakoutGame game;
     public PlayMenu(){
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
@@ -24,7 +26,7 @@ public class PlayMenu extends JFrame implements ActionListener {
         JButton playBreakout = new JButton("Play Breakout");
 
         playBreakout.setOpaque(true);
-        playBreakout.setFont(new Font(Font.MONOSPACED, Font.BOLD, 50));
+        playBreakout.setFont(new Font(Font.MONOSPACED, Font.BOLD, 45));
         playBreakout.setForeground(new Color(145, 0, 7));
         playBreakout.setBackground(new Color(0xDC0A00));
 
@@ -37,6 +39,9 @@ public class PlayMenu extends JFrame implements ActionListener {
         this.setTitle("Select a Game to Play");
         this.setVisible(true);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        game = new BreakoutGame();
+        BreakoutGame.setVisible(game, false);
+
     }
 
     public static void main(String[] args) {
@@ -45,12 +50,15 @@ public class PlayMenu extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        JButton button = (JButton) actionEvent.getSource();
+        button = (JButton) actionEvent.getSource();
         if(button.getText().equals("Play Breakout")){
             this.dispose();
-            BreakoutGame game = new BreakoutGame();
-            game.run();
+            BreakoutGame.setVisible(game, true);
+//            game.run();
+//            game.resetScreen();
         }
+
+
 
     }
 }

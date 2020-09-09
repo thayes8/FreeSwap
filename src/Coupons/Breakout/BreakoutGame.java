@@ -1,7 +1,9 @@
 package Coupons.Breakout;
 
 
+import Coupons.MainMenu;
 import Coupons.comp127graphics.*;
+import Coupons.comp127graphics.ui.Button;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,8 +25,8 @@ public class BreakoutGame {
     private static final int CANVAS_WIDTH = 600;
     private static final int CANVAS_HEIGHT = 800;
     public ArrayList<Brick> brickList = new ArrayList<>();
-    private Ball ball;
-    private Coupons.comp127graphics.CanvasWindow canvas;
+    public Ball ball;
+    public Coupons.comp127graphics.CanvasWindow canvas;
     private Paddle paddle;
     private int turns;
     private static int score = 0;
@@ -56,8 +58,6 @@ public class BreakoutGame {
         canvas.onClick(event -> {
              run();
         });
-        //canvas.onMouseMove(thing -> paddle.setCenter(thing.getPosition().getX(), 700));
-
 
     }
 
@@ -109,9 +109,17 @@ public class BreakoutGame {
      */
     public void newGamePopup() {
         CanvasWindow popupWindow = new CanvasWindow("Game Over", 200, 100);
-        Coupons.comp127graphics.ui.Button button = new Coupons.comp127graphics.ui.Button("New Game?");
+        Button button = new Coupons.comp127graphics.ui.Button("New Game?");
         GraphicsText scoreLabel = new GraphicsText("Score: " + score);
         scoreLabel.setCenter(100, 5);
+        Button returnToMainMenu = new Button("Return to Main menu");
+        returnToMainMenu.setCenter(100, 70);
+        popupWindow.add(returnToMainMenu);
+        returnToMainMenu.onClick(() -> {
+            new MainMenu();
+            JFrame frame = canvas.getWindowFrame();
+            frame.dispose();
+        });
         button.setCenter(100, 50);
         popupWindow.add(button);
         popupWindow.add(scoreLabel);
@@ -126,13 +134,16 @@ public class BreakoutGame {
         score+=1;
         return score;
     }
-
+    public static void setVisible(BreakoutGame game, boolean truOrFals){
+        JFrame frame = game.canvas.getWindowFrame();
+        frame.setVisible(truOrFals);
+    }
 
 
 
     public static void main(String[] args){
         BreakoutGame game = new BreakoutGame();
-        game.run();
+        //game.run();
     }
 
 }

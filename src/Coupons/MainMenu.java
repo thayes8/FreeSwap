@@ -1,5 +1,6 @@
 package Coupons;
 
+import Coupons.Breakout.BreakoutGame;
 import Coupons.PLAY.PlayMenu;
 
 import javax.swing.*;
@@ -15,6 +16,7 @@ public class MainMenu extends JFrame implements ActionListener {
      */
     final int WIDTH = 400;
     final int HEIGHT = 600;
+    public PlayMenu menu;
     public MainMenu(){
         this.setBounds(0, 0, WIDTH, HEIGHT);
         JPanel mainPanel = new JPanel();
@@ -63,6 +65,8 @@ public class MainMenu extends JFrame implements ActionListener {
         this.setTitle("Main Menu");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
+        menu = new PlayMenu();
+        menu.setVisible(false);
     }
 
     public static void main(String[] args) {
@@ -78,7 +82,8 @@ public class MainMenu extends JFrame implements ActionListener {
     }
     else if(button.getText().equals("PLAY")){
         this.dispose();
-        new PlayMenu();
+        menu.setVisible(true);
+//        new PlayMenu();
         }
         // else
     }
