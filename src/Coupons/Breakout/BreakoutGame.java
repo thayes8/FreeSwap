@@ -113,12 +113,15 @@ public class BreakoutGame {
         GraphicsText scoreLabel = new GraphicsText("Score: " + score);
         scoreLabel.setCenter(100, 5);
         Button returnToMainMenu = new Button("Return to Main menu");
-        returnToMainMenu.setCenter(100, 70);
+        returnToMainMenu.setCenter(100, 90);
         popupWindow.add(returnToMainMenu);
         returnToMainMenu.onClick(() -> {
             new MainMenu();
+            score = 0;
             JFrame frame = canvas.getWindowFrame();
             frame.dispose();
+
+            popupWindow.getWindowFrame().dispose();
         });
         button.setCenter(100, 50);
         popupWindow.add(button);

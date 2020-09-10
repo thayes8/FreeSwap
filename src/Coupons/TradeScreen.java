@@ -40,6 +40,14 @@ public class TradeScreen extends JFrame implements ActionListener {
         onePanel = new JPanel();
         onePanel.setLayout(new BoxLayout(onePanel, BoxLayout.PAGE_AXIS));
 
+        JButton button = new JButton("Return to main menu");
+        onePanel.add(button);
+        MainMenu menu = new MainMenu();
+        menu.setVisible(false);
+        button.addActionListener(actionEvent -> {
+            this.dispose();
+            menu.setVisible(true);
+        });
 
         JMenuBar menuBar = new JMenuBar();
         itemsToTrade = new JMenu("Trader 1 Offers: ");
@@ -79,6 +87,7 @@ public class TradeScreen extends JFrame implements ActionListener {
             item.addActionListener(this);
         }
         menuBar2.add(itemsToTrade2);
+
 
 
         twoPanel.add(menuBar2);

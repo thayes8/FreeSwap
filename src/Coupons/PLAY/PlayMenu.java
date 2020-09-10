@@ -54,7 +54,6 @@ public class PlayMenu extends JFrame implements ActionListener {
         if(button.getText().equals("Play Breakout")){
             this.dispose();
             BreakoutGame.setVisible(game, true);
-//            game.run();
 //            game.resetScreen();
         }
 
