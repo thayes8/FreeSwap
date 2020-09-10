@@ -72,9 +72,8 @@ public class BreakoutGame {
             ball.setyVelocity(-70);
         }
         if(turns < 1 || brickList.isEmpty()){
-            canvas.removeAll();
+            canvas.getWindowFrame().dispose();
             newGamePopup();
-            resetScreen();
             new BrickHandler(canvas, brickList);
             turns = 3;
 
@@ -116,12 +115,11 @@ public class BreakoutGame {
         returnToMainMenu.setCenter(100, 90);
         popupWindow.add(returnToMainMenu);
         returnToMainMenu.onClick(() -> {
-            new MainMenu();
             score = 0;
             JFrame frame = canvas.getWindowFrame();
             frame.dispose();
-
             popupWindow.getWindowFrame().dispose();
+            new MainMenu();
         });
         button.setCenter(100, 50);
         popupWindow.add(button);
@@ -129,6 +127,7 @@ public class BreakoutGame {
         button.onClick(() -> {
             turns = 3;
             score = 0;
+            popupWindow.getWindowFrame().dispose();
             BreakoutGame game = new BreakoutGame();
             game.run();
         });

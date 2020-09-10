@@ -14,7 +14,9 @@ public class TradeScreen extends JFrame implements ActionListener {
     Trader trader1;
     Trader trader2;
     JPanel onePanel;
+    JPanel labelPanel;
     JPanel twoPanel;
+    JPanel labelPanelTwo;
     JPanel bigPanel;
     JMenu itemsToTrade;
     JMenu itemsToTrade2;
@@ -42,6 +44,9 @@ public class TradeScreen extends JFrame implements ActionListener {
 
         JButton button = new JButton("Return to main menu");
         onePanel.add(button);
+        button.setOpaque(true);
+        button.setForeground(new Color(145, 0, 7));
+        button.setBackground(new Color(244, 0, 70));
         MainMenu menu = new MainMenu();
         menu.setVisible(false);
         button.addActionListener(actionEvent -> {
@@ -67,6 +72,10 @@ public class TradeScreen extends JFrame implements ActionListener {
         menuBar.add(itemsToTrade);
         onePanel.add(menuBar);
 
+        labelPanel = new JPanel();
+        labelPanel.setLayout(new BoxLayout(labelPanel, BoxLayout.PAGE_AXIS));
+        onePanel.add(labelPanel);
+
         JButton oneAcceptTrade = new JButton("Accept Trade");
         onePanel.add(oneAcceptTrade);
         oneAcceptTrade.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
@@ -91,6 +100,11 @@ public class TradeScreen extends JFrame implements ActionListener {
 
 
         twoPanel.add(menuBar2);
+
+        labelPanelTwo = new JPanel();
+        labelPanelTwo.setLayout(new BoxLayout(labelPanelTwo, BoxLayout.PAGE_AXIS));
+        twoPanel.add(labelPanelTwo);
+
         JButton twoAcceptTrade = new JButton("Accept Trade");
         twoPanel.add(twoAcceptTrade);
         twoAcceptTrade.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
@@ -140,17 +154,17 @@ public class TradeScreen extends JFrame implements ActionListener {
             }
         }
         if (is1) {
-            onePanel.add(label);
-            label.setBounds(0, labelHeightCounter1, 10, 10);
-            labelHeightCounter1+=20;
-            this.setVisible(true);
+            labelPanel.add(label);
+//            label.setBounds(0, labelHeightCounter1, 10, 10);
+//            labelHeightCounter1+=20;
+//            this.setVisible(true);
             itemsToTrade.remove(item);
         }
         else{
-            twoPanel.add(label);
-            label.setBounds(0, labelHeightCounter2, 10, 10);
-            labelHeightCounter2+=20;
-            this.setVisible(true);
+            labelPanelTwo.add(label);
+//            label.setBounds(0, labelHeightCounter2, 10, 10);
+//            labelHeightCounter2+=20;
+//            this.setVisible(true);
             itemsToTrade2.remove(item);
         }
         label.setForeground(new Color(145, 0, 7));
