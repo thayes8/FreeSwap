@@ -22,8 +22,8 @@ public class TradeScreen extends JFrame implements ActionListener {
     JMenu itemsToTrade2;
     final int WIDTH = 400;
     final int HEIGHT = 700;
-    int labelHeightCounter1 = 0;
-    int labelHeightCounter2 = 0;
+//    int labelHeightCounter1 = 0;
+//    int labelHeightCounter2 = 0;
 //    ArrayList<JMenuItem> oneSelectedCoupons = new ArrayList<>();
 //    ArrayList<JMenuItem> twoSelectedCoupons = new ArrayList<>();
 
@@ -42,8 +42,13 @@ public class TradeScreen extends JFrame implements ActionListener {
         onePanel = new JPanel();
         onePanel.setLayout(new BoxLayout(onePanel, BoxLayout.PAGE_AXIS));
 
+        JPanel menuPanel  = new JPanel();
+        menuPanel.setLayout(new BoxLayout(menuPanel, BoxLayout.X_AXIS));
+
+        bigPanel.add(menuPanel);
         JButton button = new JButton("Return to main menu");
-        onePanel.add(button);
+        menuPanel.add(button);
+
         button.setOpaque(true);
         button.setForeground(new Color(145, 0, 7));
         button.setBackground(new Color(244, 0, 70));
